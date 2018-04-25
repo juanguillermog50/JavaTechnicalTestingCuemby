@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>Java Technical Testing</title>
+
+<!-- Bootstrap core CSS -->
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom fonts for this template -->
+<link href="vendor/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css">
+<link
+	href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+	rel='stylesheet' type='text/css'>
+<link
+	href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic'
+	rel='stylesheet' type='text/css'>
+
+<!-- Plugin CSS -->
+<link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="css/creative.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+	<!-- Navigation -->
+	<nav class="navbar navbar-expand-lg navbar-light fixed-top"
+		id="mainNav">
+		<div class="container">
+			<a class="navbar-brand js-scroll-trigger" href="#page-top">Manage
+				Employees</a>
+			<button class="navbar-toggler navbar-toggler-right" type="button"
+				data-toggle="collapse" data-target="#navbarResponsive"
+				aria-controls="navbarResponsive" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item"><a class="nav-link js-scroll-trigger"
+						href="#insert">Insert Employee</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger"
+						href="#search">Search Employee</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger"
+						href="#report">Attendances Report</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<header class="masthead">
+		<div class="header-content">
+			<div class="header-content-inner">
+				<h1 id="homeHeading">Manage your employees</h1>
+				<hr>
+				<p>Start Bootstrap</p>
+			</div>
+		</div>
+	</header>
+
+	<section id="insert">
+		<div class="container" ng-controller="appCtrl as ci">
+			<form class="form-horizontal" ng-submit="ci.insert()">
+				<fieldset>
+					<!-- Form Name -->
+					<legend>Create new employee</legend>
+					<div style="background-color: #4ED4E8"></div>
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-md-4 control-label" for="numId">ID</label>
+						<div class="col-md-5">
+							<input id="numId" type="number"
+								placeholder="Employee Identification"
+								class="form-control input-md" ng-model="ci.fdatos.id">
+						</div>
+					</div>
+
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-md-4 control-label" for="txtFirstName">First
+							Name </label>
+						<div class="col-md-5">
+							<input id="txtFirstName" type="text"
+								placeholder="Enter the First Name" class="form-control input-md"
+								ng-model="ci.fdatos.firstName">
+						</div>
+					</div>
+
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-md-4 control-label" for="txtLastName">Last
+							Name</label>
+						<div class="col-md-5">
+							<input id="txtLastName" type="text"
+								placeholder="Enter the Last Name" class="form-control input-md"
+								ng-model="ci.fdatos.lastName">
+						</div>
+					</div>
+
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-md-4 control-label" for="numAge">Age</label>
+						<div class="col-md-4">
+							<input id="numAge" type="number" placeholder="33"
+								class="form-control input-md" ng-model="ci.fdatos.age">
+
+						</div>
+					</div>
+
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-md-4 control-label" for="dateBirthday">Birthday</label>
+						<div class="col-md-4">
+							<input id="dateBirthday" type="date"
+								class="form-control input-md" ng-model="ci.fdatos.birthday">
+						</div>
+					</div>
+
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-md-4 control-label" for="txtPosition">Position</label>
+						<div class="col-md-5">
+							<input id="txtPosition" type="text"
+								placeholder="Enter the Position" class="form-control input-md"
+								ng-model="ci.fdatos.position">
+						</div>
+					</div>
+
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-md-4 control-label" for="numSalary">Salary</label>
+						<div class="col-md-4">
+							<input id="numSalary" type="number" placeholder="2000000"
+								class="form-control input-md" ng-model="ci.fdatos.salary">
+						</div>
+					</div>
+
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-md-4 control-label" for="dateAdmission">Admission</label>
+						<div class="col-md-4">
+							<input id="dateAdmission" type="date"
+								class="form-control input-md" ng-model="ci.fdatos.admission">
+						</div>
+					</div>
+
+					<!-- Select Basic -->
+					<div class="form-group">
+						<label class="col-md-4 control-label" for="cbxStatus">Status</label>
+						<div class="col-md-4">
+							<select id="cbxStatus" class="form-control"
+								ng-model="ci.fdatos.status">
+								<option value="active">Active</option>
+								<option value="inactive">Inactive</option>
+							</select>
+						</div>
+					</div>
+
+					<!-- Button -->
+					<div class="form-group">
+						<div class="col-md-4">
+							<input id="btnSave" type="submit" class="btn btn-primary"
+								value="Save">
+						</div>
+					</div>
+				</fieldset>
+			</form>
+		</div>
+	</section>
+
+	<section id="search">
+		<div style="background-color: rgb(248, 245, 245)">
+			<div class="container" ng-controller="appCtrl as cb">
+				<form class="form-horizontal" ng-submit="cb.search()">
+					<fieldset>
+						<!-- Form Name -->
+						<legend>Buscar Empleado</legend>
+						<div class="row">
+							<div class="col-md-1">
+								<label class="col-md-6 control-label" for="txtId">ID</label>
+							</div>
+							<div class="col-md-6">
+								<input id="txtId" type="number"
+									placeholder="Employee Identification"
+									class="form-control input-md" required="true" ng-model="cb.id">
+							</div>
+							<div class="col-md-5">
+								<div class="form-group">
+									<input id="btnSearch" type="submit" value="Search"
+										class="btn btn-primary">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-2">
+								<label>First Name: </label>
+							</div>
+							<div class="col-md-10">
+								<label>{{cb.employee.firstName}}</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-2">
+								<label>Last Name: </label>
+							</div>
+							<div class="col-md-10">
+								<label>{{cb.employee.lastName}}</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-2">
+								<label>Age: </label>
+							</div>
+							<div class="col-md-10">
+								<label>{{cb.employee.age}}</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-2">
+								<label>Birthday: </label>
+							</div>
+							<div class="col-md-10">
+								<label>{{cb.employee.birthday}}</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-2">
+								<label>Position:</label>
+							</div>
+							<div class="col-md-10">
+								<label>{{cb.employee.position}}</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-2">
+								<label>Salary:</label>
+							</div>
+							<div class="col-md-10">
+								<label>{{cb.employee.salary}}</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-2">
+								<label>Admission:</label>
+							</div>
+							<div class="col-md-10">
+								<label>{{cb.employee.admission}}</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-2">
+								<label>Status:</label>
+							</div>
+							<div class="col-md-10">
+								<label>{{cb.employee.status}}</label>
+							</div>
+						</div>
+					</fieldset>
+				</form>
+				<form class="form-horizontal" ng-submit="cb.attendance()">
+					<fieldset>
+						<div class="row">
+							<div class="col-md-2">
+								<input id="btnSearch" type="submit" value="Attendance"
+									class="btn btn-primary">
+							</div>
+							<div class="col-md-6">
+								<input id="dateAttendance" type="date"
+									class="form-control input-md" ng-model="cb.date">
+							</div>
+						</div>
+					</fieldset>
+				</form>
+				<form ng-submit="cb.deactivate()">
+					<fieldset>
+						<div class="row">
+							<div class="col-md-6">
+								<input id="btnDeactivate" type="submit" value="Deactivate"
+									class="btn btn-primary">
+							</div>
+						</div>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+	</section>
+
+	<section id="report">
+		<div class="container" ng-controller="appCtrl as cr">
+			<legend>Attendance Report</legend>
+			<form ng-submit="cr.report()">
+				<fieldset>
+					<div class="row">
+						<label class="col-md-2 control-label" for="dateInit">Initial
+							date:</label>
+						<div class="col-md-3">
+							<input id="dateInit" type="date" class="form-control input-md"
+								ng-model="cr.init">
+						</div>
+						<label class="col-md-2 control-label" for="dateEnd">Final
+							date:</label>
+						<div class="col-md-3">
+							<input id="dateEnd" type="date" class="form-control input-md"
+								ng-model="cr.end">
+						</div>
+						<div class="col-md-2">
+							<div class="form-group">
+								<input id="btnReport" type="submit" value="Generate"
+									class="btn btn-primary">
+							</div>
+						</div>
+					</div>
+				</fieldset>
+			</form>
+			<div class="row">
+				<div class="col-md-2">
+					<label>Date</label>
+				</div>
+				<div class="col-md-2">
+					<label>ID</label>
+				</div>
+				<div class="col-md-2">
+					<label>First Name</label>
+				</div>
+				<div class="col-md-2">
+					<label>Last Name</label>
+				</div>
+				<div class="col-md-2">
+					<label>Position</label>
+				</div>
+			</div>
+			<div class="row" ng-repeat="attendance in cr.attendances">
+				<div class="col-md-2">{{attendance[0]}}</div>
+				<div class="col-md-2">{{attendance[1]}}</div>
+				<div class="col-md-2">{{attendance[2]}}</div>
+				<div class="col-md-2">{{attendance[3]}}</div>
+				<div class="col-md-2">{{attendance[4]}}</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-primary"></section>
+
+	<!-- Bootstrap core JavaScript -->
+	<script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/popper/popper.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+	<!-- Plugin JavaScript -->
+	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+	<script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+	<script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+	<!-- Custom scripts for this template -->
+	<script src="js/creative.min.js"></script>
+
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.24/angular.min.js"></script>
+	<script src="js/app.js"></script>
+
+</body>
+
+</html>
